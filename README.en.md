@@ -20,7 +20,6 @@ General-purpose coding skills, more coming soon.
 <tr>
 <td width="180" align="center"><a href="https://www.packyapi.com/register?aff=cSVG"><img src="https://raw.githubusercontent.com/farion1231/cc-switch/main/assets/partners/logos/packycode.png" alt="PackyCode" width="150"></a></td>
 <td>
-<p>Website: <a href="https://www.packyapi.ai/">https://www.packyapi.ai/</a></p>
 <p>Access leading AI models through PackyCode with one API endpoint and one API key. Enjoy fast, reliable access with automatic failover and dedicated high-speed routes for Codex and Claude Code.</p>
 <p>Get started with $1 in free credits, a discount on your first top-up, and savings of up to 80% on eligible routes. Pay in RMB with no currency conversion markups or extra top-up fees.</p>
 <p><strong><a href="https://www.packyapi.com/register?aff=cSVG">Sign up through the link and start building today.</a></strong></p>
