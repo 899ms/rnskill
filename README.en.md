@@ -231,3 +231,7 @@ CC BY-NC 4.0 unless otherwise noted. See [LICENSE](LICENSE). Third-party compone
 ## Author
 
 雪踏乌云 · [@Pluvio9yte](https://x.com/Pluvio9yte)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Pluviobyte/rnskill&type=Date)](https://www.star-history.com/#Pluviobyte/rnskill&Date)

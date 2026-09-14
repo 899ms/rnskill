@@ -231,3 +231,7 @@ cp -R skills/ra-人话 <project>/.claude/skills/ra-人话
 ## 作者
 
 雪踏乌云 · [@Pluvio9yte](https://x.com/Pluvio9yte)
+
+## Star 增长曲线
+
+[![Star 增长曲线](https://api.star-history.com/svg?repos=Pluviobyte/rnskill&type=Date)](https://www.star-history.com/#Pluviobyte/rnskill&Date)
