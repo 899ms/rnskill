@@ -14,6 +14,19 @@
 
 通用编码 Skill，持续补充中。
 
+## ❤️ 赞助商
+
+<table>
+<tr>
+<td width="180" align="center"><a href="https://www.packyapi.com/register?aff=cSVG"><img src="https://raw.githubusercontent.com/farion1231/cc-switch/main/assets/partners/logos/packycode.png" alt="PackyCode" width="150"></a></td>
+<td>
+<p>官网：<a href="https://www.packyapi.ai/">https://www.packyapi.ai/</a></p>
+<p>PackyCode 是一家稳定、高效的 API 中转服务商，一句话接入主流大模型。统一域名、统一密钥、智能容灾切换，97% 可用性。人民币1:1充值，无汇率无手续费坑，新用户首充立享折扣 + $1免费体验额度，多分组折扣低至 2 折起，提供专属Codex/Claude Code高速通道。</p>
+<p><strong><a href="https://www.packyapi.com/register?aff=cSVG">点此链接注册，立即开始使用！</a></strong></p>
+</td>
+</tr>
+</table>
+
 ## RN Cover Skill
 
 `rn-cover-skill` 用标题和主题直接生成 `5:2` 编辑图解风封面，不需要提供参考图。它把创作分成两层：ImageGen 每次重新设计右侧概念图，脚本负责精确排版、暖白背景与可编辑 SVG，因此既能保持家族气质，也不会把某张参考封面的节点和构图反复复制。
