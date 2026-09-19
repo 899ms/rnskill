@@ -95,6 +95,42 @@
       "category": "image-generation",
       "keywords": ["牛来", "风格转换", "3D", "生图", "niulai", "style-transfer", "image"],
       "skills": ["./skills/rn-niulai-style-image"]
+    },
+    {
+      "name": "novel-distill",
+      "description": "从小说章节比较关键事件，核对原文事实、视听建议与新增改编，输出事件卡、分镜和视频制作简报。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "writing",
+      "keywords": [
+        "小说",
+        "蒸馏",
+        "分镜",
+        "novel",
+        "storyboard"
+      ],
+      "skills": [
+        "./skills/novel-distill"
+      ]
+    },
+    {
+      "name": "avatar-keyframe-video",
+      "description": "将人物与同源巨大法相同框的视觉参考制作成连续关键帧，再使用所选平台制作和检查动作视频。",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "video-production",
+      "keywords": [
+        "法天象地",
+        "连续帧",
+        "视频",
+        "avatar",
+        "keyframes"
+      ],
+      "skills": [
+        "./skills/avatar-keyframe-video"
+      ]
     }
   ]
 }

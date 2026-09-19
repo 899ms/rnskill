@@ -8,6 +8,8 @@ mkdir -p "$DIST"
 
 group_for() {
   case "$1" in
+    novel-distill)         echo "01-writing" ;;
+    avatar-keyframe-video) echo "02-video-production" ;;
     rn-renhua)              echo "01-writing" ;;
     rn-motion-director)     echo "02-video-production" ;;
     rn-motion-replica)      echo "02-video-production" ;;
@@ -41,6 +43,13 @@ for skill_md in skills/*/SKILL.md; do
 
   # Copy SKILL.md
   cp "$skill_md" "$tmp_dir/SKILL.md"
+
+  # Preserve per-skill documentation and licensing in distributable packages.
+  for file in README.md LICENSE LICENSE.md LICENSE.txt; do
+    if [[ -f "$skill_dir/$file" ]]; then
+      cp "$skill_dir/$file" "$tmp_dir/$file"
+    fi
+  done
 
   # Copy companion directories if they exist
   for sub in agents references scripts templates docs tools assets; do

@@ -4,7 +4,7 @@
 
 AI Agent Skills by 雪踏乌云 for Codex, Claude Code, and other `SKILL.md`-compatible agents.
 
-Currently **57 skills** in two categories:
+Currently **60 top-level skill directories** (including compatibility aliases), plus nested skill collections, in two categories:
 
 ### 🎬 Content Creation (Video / Image / Article)
 
@@ -43,6 +43,47 @@ Example:
 ```text
 Use $rn-cover-skill to create a 5:2 cover titled "Open-source Claude-style Cover Skill"
 ```
+
+## Novel Distillation and Avatar Keyframes
+
+Use the two skills together or independently:
+
+- [`novel-distill`](skills/novel-distill/): read supplied chapters, compare candidate events, preserve motivation and consequences, and produce event cards, storyboards, and a production brief. Separate **F source facts / P audiovisual choices / A adaptations** instead of attributing reference-video abilities to the novel.
+- [`avatar-keyframe-video`](skills/avatar-keyframe-video/): turn an approved style image into continuous keyframes showing a character and their own giant manifestation performing synchronized actions, then use available tools to produce the video. This is for avatar or power-manifestation scenes, not a required effect for every novel excerpt.
+
+Install:
+
+```bash
+npx -y skills add Pluviobyte/rnskill --skill novel-distill
+npx -y skills add Pluviobyte/rnskill --skill avatar-keyframe-video
+```
+
+Or, after adding the Claude Code marketplace:
+
+```bash
+claude plugin install novel-distill@rnskill
+claude plugin install avatar-keyframe-video@rnskill
+```
+
+Give Codex the actual chapters and start with event selection:
+
+```text
+Use $novel-distill on the supplied chapters for a roughly 30-second scene.
+Compare up to three candidates and select one self-contained event.
+Provide source locations, selection reasons, an event card, and a storyboard brief.
+Separate F/P/A and do not invent missing facts.
+```
+
+After approving the event, provide a style image if the scene calls for an avatar:
+
+```text
+Use $avatar-keyframe-video to create continuous reference frames from the
+approved event and style image. Keep the character and setting consistent;
+show the character and their own giant avatar together, with synchronized actions.
+Let me review the frames before using my chosen video tool to produce the film.
+```
+
+Image and video generation require available tools, accounts, and credits; the skills do not supply a generation service. The video platform is interchangeable; Pexo is an included case study. The video audit script needs Python 3, FFmpeg, and ffprobe. Its metadata checks and frame samples do not replace source-text verification or watching the actual result.
 
 ## Requirements
 
@@ -111,6 +152,13 @@ Skills marked `⬡` are from or adapted from external open-source projects — s
 | [`ra-洗稿`](skills/ra-洗稿/) | Script rewrite: chains ra-人话 → dbs-ai-check → dbs-hook → dbs-resonate → ra-video-title | Original |
 | [`ra-人话`](skills/ra-人话/) | Chinese de-AI writing: bans binary contrast shells, fake insight markers, lecture colons; preserves author judgment | Original |
 | [`ra-公众号提取`](skills/ra-公众号提取/) | WeChat article full-text extraction via MicroMessenger UA spoofing, stdlib only | Original |
+
+### Novels and Generative Video
+
+| Skill | Description | Source |
+|-------|-------------|--------|
+| [`novel-distill`](skills/novel-distill/) | Novel chapters → event comparison → causality and F/P/A checks → storyboard and production brief | Original · [MIT](skills/novel-distill/LICENSE) |
+| [`avatar-keyframe-video`](skills/avatar-keyframe-video/) | Character and own giant avatar in one shot → continuous keyframes → platform-independent action video production and QA | Original |
 
 ### Video Download
 
@@ -239,7 +287,7 @@ From [@dontbesilent](https://x.com/dontbesilent)'s open-source [dbskill](https:/
 
 ## License
 
-CC BY-NC 4.0 unless otherwise noted. See [LICENSE](LICENSE). Third-party components retain their upstream licenses.
+CC BY-NC 4.0 unless otherwise noted. See [LICENSE](LICENSE). `novel-distill` retains its [MIT license](skills/novel-distill/LICENSE). Third-party components retain their upstream licenses.
 
 ## Author
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "法天象地连续帧成片"
+  short_description: "不绑定平台，将人物与同源法相同框的设计转成连续关键帧和动作视频"
+  default_prompt: "使用 $avatar-keyframe-video，依据我选定的风格制作本体与法相同框的连续关键帧，再用我指定或当前可用的工具，按已授权范围生成并检查动作视频。"

@@ -4,7 +4,7 @@
 
 雪踏乌云维护的 AI Agent Skill 全集，适用于 Codex、Claude Code 等支持 `SKILL.md` 的 Agent 工作流。
 
-当前共 **57 个 Skill**，分为两大类：
+当前收录 **60 个顶层 Skill 目录**（含兼容别名），另有嵌套技能集合，分为两大类：
 
 ### 🎬 内容创作（视频 / 图文 / 文章）
 
@@ -42,6 +42,45 @@
 ```text
 使用 $rn-cover-skill 制作 5:2 封面，标题为「开源 Claude 风格封面 Skill」
 ```
+
+## 小说蒸馏与法相连续帧
+
+两个 Skill 可以接力使用，也可以单独调用：
+
+- [`novel-distill`](skills/novel-distill/)：读取小说章节，比较候选事件，保留出手原因、目标与结果，输出事件卡、分镜和制作简报。区分 **F 原文事实 / P 视听建议 / A 新增改编**，不把参考视频里的能力写成原著。
+- [`avatar-keyframe-video`](skills/avatar-keyframe-video/)：从确认的风格图出发，制作本体与同源巨大法相同框、同步出招的连续关键帧，再按实际工具能力推进视频。适用于法相或力量显现，不要求所有小说片段都加上这个效果。
+
+安装：
+
+```bash
+npx -y skills add Pluviobyte/rnskill --skill novel-distill
+npx -y skills add Pluviobyte/rnskill --skill avatar-keyframe-video
+```
+
+也可通过已添加的 Claude Code 插件市场安装：
+
+```bash
+claude plugin install novel-distill@rnskill
+claude plugin install avatar-keyframe-video@rnskill
+```
+
+把相关章节正文交给 Codex，先调用选段：
+
+```text
+使用 $novel-distill 分析我提供的章节，目标约30秒。
+比较最多3个候选，选出一次能独立看懂的事件，给出原文出处、
+选中理由、事件卡和分镜简报，分清 F/P/A；缺失信息不要编造。
+```
+
+确认事件后，若需要法相画面，再提供风格图：
+
+```text
+使用 $avatar-keyframe-video，根据已确认的事件和风格图制作连续参考帧。
+保持人物与场景一致，本体和自己的巨大法相同框、同步出招。
+先让我看图，确认后再用我指定的视频工具成片。
+```
+
+生成图片和视频需要可用工具、账号与相应额度；Skill 本身不提供生成服务。成片平台可以替换，Pexo 仅是附带实测案例。视频验收脚本需要 Python 3、FFmpeg 和 ffprobe；它检查媒体参数和抽帧，不代替原文核对与实际回看。
 
 ## 前置要求
 
@@ -110,6 +149,13 @@ cp -R skills/ra-人话 <project>/.claude/skills/ra-人话
 | [`ra-洗稿`](skills/ra-洗稿/) | 视频脚本洗稿：自动串联 ra-人话 → dbs-ai-check → dbs-hook → dbs-resonate → ra-video-title | 原创 |
 | [`ra-人话`](skills/ra-人话/) | 中文去 AI 味写作：硬禁二元对比壳、伪洞察标记、冒号讲义腔，保留作者判断和事实 | 原创 |
 | [`ra-公众号提取`](skills/ra-公众号提取/) | 微信公众号文章全文提取，MicroMessenger UA 伪装，纯标准库 | 原创 |
+
+### 小说与生成式视频
+
+| Skill | 说明 | 来源 |
+|-------|------|------|
+| [`novel-distill`](skills/novel-distill/) | 小说章节 → 候选事件比较 → 因果与 F/P/A 核对 → 分镜和制作简报 | 原创 · [MIT](skills/novel-distill/LICENSE) |
+| [`avatar-keyframe-video`](skills/avatar-keyframe-video/) | 本体与同源法相同框 → 连续关键帧 → 平台无关的动作视频制作与验收 | 原创 |
 
 ### 视频下载
 
@@ -238,7 +284,7 @@ cp -R skills/ra-人话 <project>/.claude/skills/ra-人话
 
 ## 许可证
 
-除另有说明外，仓库采用 CC BY-NC 4.0，详见 [LICENSE](LICENSE)。改编自第三方的内容保留其上游许可。
+除另有说明外，仓库采用 CC BY-NC 4.0，详见 [LICENSE](LICENSE)。`novel-distill` 保留其 [MIT 许可](skills/novel-distill/LICENSE)。改编自第三方的内容保留其上游许可。
 
 ## 作者
 
