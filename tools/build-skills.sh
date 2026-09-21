@@ -17,7 +17,6 @@ group_for() {
     rn-dark-saas-video)     echo "02-video-production" ;;
     rn-bw-text-opener)      echo "02-video-production" ;;
     rn-replica-qc)          echo "03-quality-control" ;;
-    rn-cover-skill)         echo "04-design" ;;
     rn-niulai-style-image)  echo "05-image-generation" ;;
     *)                      echo "99-other" ;;
   esac

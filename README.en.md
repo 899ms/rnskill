@@ -4,7 +4,7 @@
 
 AI Agent Skills by 雪踏乌云 for Codex, Claude Code, and other `SKILL.md`-compatible agents.
 
-Currently **60 top-level skill directories** (including compatibility aliases), plus nested skill collections, in two categories:
+Currently **61 top-level skill directories** (including compatibility aliases), plus nested skill collections, in two categories:
 
 ### 🎬 Content Creation (Video / Image / Article)
 
@@ -26,23 +26,6 @@ General-purpose coding skills, more coming soon.
 </td>
 </tr>
 </table>
-
-## RN Cover Skill
-
-`rn-cover-skill` creates `5:2` editorial diagram covers from a title and theme—no reference image required. ImageGen invents a new right-side concept for every cover, while the compositor controls exact typography, the warm-white canvas, and editable SVG output. The result keeps a recognizable visual family without repeating one reference layout.
-
-![RN Cover Skill example](docs/assets/rn-cover-skill-example.png)
-
-- Exact `#FAF9F5` warm-white canvas with Chinese and mixed-language headline priority
-- Vertically centered left text block; the right visual yields to headline length
-- A thumbnail-visible fine grid anchors the right field; its start, spacing, strength, and artwork position remain adjustable
-- Fresh isolated artwork per cover, delivered as self-contained SVG and PNG
-
-Example:
-
-```text
-Use $rn-cover-skill to create a 5:2 cover titled "Open-source Claude-style Cover Skill"
-```
 
 ## Novel Distillation and Avatar Keyframes
 
@@ -84,6 +67,30 @@ Let me review the frames before using my chosen video tool to produce the film.
 ```
 
 Image and video generation require available tools, accounts, and credits; the skills do not supply a generation service. The video platform is interchangeable; Pexo is an included case study. The video audit script needs Python 3, FFmpeg, and ffprobe. Its metadata checks and frame samples do not replace source-text verification or watching the actual result.
+
+## Jev Office Gate: Review Office Deliverables
+
+[`jev-office-gate`](skills/jev-office-gate/) adds citation review and human-review routing to reports, proposals, spreadsheets, and slide decks. An agent with skill loading and script execution can review outputs from Kooko, ChatGPT, Claude, or other office tools; no native Jev integration is assumed.
+
+- Check whether supplied excerpts support claims, classify citation suitability, and flag risk
+- Use decision templates for requirement coverage, classification, and review priority
+- Includes a Python helper, JSON input schema, request previews, and saved-response evaluation
+- Jev judges supplied text only; check URLs, numbers, dates, formulas, and file compatibility separately. A model pass does not certify truth
+
+Install from the local repository:
+
+```bash
+mkdir -p <project>/.agents/skills
+cp -R skills/jev-office-gate <project>/.agents/skills/jev-office-gate
+```
+
+Example:
+
+```text
+Use $jev-office-gate to review this report's citations and list passed, rejected, and manual-review items with reasons.
+```
+
+The bundled helper requires Python 3.9+ and uses only the standard library. Live API calls require a valid `TYPESAFE_API_KEY` (or `JEV_API_KEY`) and Jev access; supply credentials through environment variables. Request previews and saved-response evaluation work without a key. See the [input schema and commands](skills/jev-office-gate/references/input-schema.md).
 
 ## Requirements
 
@@ -132,6 +139,12 @@ Skills marked `⬡` are from or adapted from external open-source projects — s
 | Skill | Description | Source |
 |-------|-------------|--------|
 | [`grok-build-cli`](skills/grok-build-cli/) | Let Codex invoke the local Grok Build CLI: verify login and models, choose single-turn or agentic mode, monitor long calls, and return results reliably | Original |
+
+### Office Deliverables & Decisions
+
+| Skill | Description | Source |
+|-------|-------------|--------|
+| [`jev-office-gate`](skills/jev-office-gate/) | Review office outputs for citation support, source suitability, and risk; includes a Jev API helper and offline review | Original |
 
 ### Topic & Planning
 
@@ -227,7 +240,6 @@ Skills marked `⬡` are from or adapted from external open-source projects — s
 | [`rn-dark-saas-video`](skills/rn-dark-saas-video/) | Dark cinematic SaaS product video: 8 scene blueprints, 3 timing presets | Original |
 | [`rn-bw-text-opener`](skills/rn-bw-text-opener/) | Black-white typed text opener with synced SFX, 3 timing presets, Python timing planner | Original |
 | [`rn-replica-qc`](skills/rn-replica-qc/) | Replica QA: 5 fidelity levels + asset/runtime/delivery full-frame gates | Original |
-| [`rn-cover-skill`](skills/rn-cover-skill/) | Reference-free editorial diagram covers with adaptive left text, fresh right-side artwork, editable SVG + PNG | Original |
 
 ### dbs Business Toolkit (22 skills)
 

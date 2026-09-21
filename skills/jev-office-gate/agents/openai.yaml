@@ -1,0 +1,7 @@
+interface:
+  display_name: "Jev Office Gate"
+  short_description: "Add a Jev review gate to office AI deliverables"
+  default_prompt: "Use $jev-office-gate to review this office deliverable and flag claims that need correction or human verification."
+policy:
+  allow_implicit_invocation: true
+

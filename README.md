@@ -4,7 +4,7 @@
 
 雪踏乌云维护的 AI Agent Skill 全集，适用于 Codex、Claude Code 等支持 `SKILL.md` 的 Agent 工作流。
 
-当前收录 **60 个顶层 Skill 目录**（含兼容别名），另有嵌套技能集合，分为两大类：
+当前收录 **61 个顶层 Skill 目录**（含兼容别名），另有嵌套技能集合，分为两大类：
 
 ### 🎬 内容创作（视频 / 图文 / 文章）
 
@@ -25,23 +25,6 @@
 </td>
 </tr>
 </table>
-
-## RN Cover Skill
-
-`rn-cover-skill` 用标题和主题直接生成 `5:2` 编辑图解风封面，不需要提供参考图。它把创作分成两层：ImageGen 每次重新设计右侧概念图，脚本负责精确排版、暖白背景与可编辑 SVG，因此既能保持家族气质，也不会把某张参考封面的节点和构图反复复制。
-
-![RN Cover Skill 示例](docs/assets/rn-cover-skill-example.png)
-
-- 固定干净的 `#FAF9F5` 暖白画布，中文或混合标题优先
-- 左侧文字整体垂直居中；右侧图形根据标题长度主动让位
-- 右侧默认保留缩略图可见的细网格；起点、格距、强度和图形位置仍可按内容调整
-- 每个新封面重新生成独立图形，最终输出自包含 SVG 与 PNG
-
-调用示例：
-
-```text
-使用 $rn-cover-skill 制作 5:2 封面，标题为「开源 Claude 风格封面 Skill」
-```
 
 ## 小说蒸馏与法相连续帧
 
@@ -81,6 +64,30 @@ claude plugin install avatar-keyframe-video@rnskill
 ```
 
 生成图片和视频需要可用工具、账号与相应额度；Skill 本身不提供生成服务。成片平台可以替换，Pexo 仅是附带实测案例。视频验收脚本需要 Python 3、FFmpeg 和 ffprobe；它检查媒体参数和抽帧，不代替原文核对与实际回看。
+
+## Jev Office Gate：办公交付前辅助判断
+
+[`jev-office-gate`](skills/jev-office-gate/) 为报告、方案、表格和 PPT 增加交付前的引用检查与人工复核分流。它可由支持 Skill 和脚本执行的 Agent 使用，审查 Kooko、ChatGPT、Claude 等工具导出的内容；不要求生成工具本身接入 Jev。
+
+- 检查来源摘句是否支持报告结论，判断来源处置并标记风险
+- 提供需求覆盖、条目分类和复核优先级的判断模板
+- 附 Python 脚本、JSON 输入格式、请求预览和历史响应离线复核
+- Jev 只判断提交的文本；链接可访问性、数字、日期、公式和文件兼容性需单独检查，模型通过不等于事实认证
+
+从当前仓库手动安装：
+
+```bash
+mkdir -p <project>/.agents/skills
+cp -R skills/jev-office-gate <project>/.agents/skills/jev-office-gate
+```
+
+调用示例：
+
+```text
+使用 $jev-office-gate 检查这份报告的引用，输出通过、打回和需要人工复核的条目，并列出原因。
+```
+
+附带脚本需要 Python 3.9+，仅使用标准库。真实 API 调用需要有效的 `TYPESAFE_API_KEY`（也支持 `JEV_API_KEY`）及 Jev 访问权限；密钥仅通过环境变量提供。没有密钥时可预览请求或离线复核已有响应。详见 [输入格式与命令](skills/jev-office-gate/references/input-schema.md)。
 
 ## 前置要求
 
@@ -129,6 +136,12 @@ cp -R skills/ra-人话 <project>/.claude/skills/ra-人话
 | Skill | 说明 | 来源 |
 |-------|------|------|
 | [`grok-build-cli`](skills/grok-build-cli/) | 让 Codex 调用本机 Grok Build CLI：检查登录与模型、选择单轮或 Agentic 调用、轮询长任务并可靠返回结果 | 原创 |
+
+### 办公交付与判断
+
+| Skill | 说明 | 来源 |
+|-------|------|------|
+| [`jev-office-gate`](skills/jev-office-gate/) | 通用办公交付判断层：引用支持度、来源处置、风险筛查与人工复核，附 Jev API 脚本和离线复核 | 原创 |
 
 ### 选题与策划
 
@@ -224,7 +237,6 @@ cp -R skills/ra-人话 <project>/.claude/skills/ra-人话
 | [`rn-dark-saas-video`](skills/rn-dark-saas-video/) | 暗色 SaaS 产品视频：8 套场景蓝图、3 种时长预设 | 原创 |
 | [`rn-bw-text-opener`](skills/rn-bw-text-opener/) | 黑白打字机开场动画：3 种时长预设，附 Python 时序规划脚本 | 原创 |
 | [`rn-replica-qc`](skills/rn-replica-qc/) | 复刻质检：五级保真度 + 素材/运行时/交付三道全帧门 | 原创 |
-| [`rn-cover-skill`](skills/rn-cover-skill/) | 无参考图生成编辑图解风封面：自适应左文右图、每次重绘概念图，输出可编辑 SVG + PNG | 原创 |
 
 ### dbs 商业工具箱（22 个）
 

@@ -7,6 +7,25 @@
   "license": "CC-BY-NC-4.0",
   "plugins": [
     {
+      "name": "jev-office-gate",
+      "description": "办公交付前引用与辅助判断：证据支持、来源处置、风险筛查和人工复核。 Jev review gate for office deliverables with API and offline helpers.",
+      "source": "./",
+      "strict": false,
+      "version": "1.0.0",
+      "category": "quality-control",
+      "keywords": [
+        "Jev",
+        "office",
+        "citations",
+        "review",
+        "办公",
+        "引用"
+      ],
+      "skills": [
+        "./skills/jev-office-gate"
+      ]
+    },
+    {
       "name": "rn-renhua",
       "description": "中文 AI/技术写作去 AI 味精修。去除二元对比壳、伪洞察标记、冒号讲义腔等 AI 写作模式。\nChinese AI/tech writing de-AI editor. Removes AI-flavored structure while preserving author voice.\nTrigger: /rn-renhua, 去AI味, 精修中文AI技术文章",
       "source": "./",
@@ -75,16 +94,6 @@
       "category": "video-production",
       "keywords": ["开场", "打字", "黑底白字", "opener", "typing", "animation"],
       "skills": ["./skills/rn-bw-text-opener"]
-    },
-    {
-      "name": "rn-cover-skill",
-      "description": "无参考图生成 5:2 编辑图解风封面。固定暖白背景、自适应左文右图，每次重新设计右侧概念图，输出可编辑 SVG + PNG。\nReference-free 5:2 editorial diagram covers with adaptive typography, fresh artwork, and editable SVG + PNG.\nTrigger: /rn-cover-skill, RN封面, 编辑图解风封面",
-      "source": "./",
-      "strict": false,
-      "version": "1.0.0",
-      "category": "design",
-      "keywords": ["封面", "编辑设计", "图解", "cover", "editorial", "diagram"],
-      "skills": ["./skills/rn-cover-skill"]
     },
     {
       "name": "rn-niulai-style-image",
